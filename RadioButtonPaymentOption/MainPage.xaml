@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+             xmlns:inputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="RadioButtonPaymentOption.MainPage">
+
+    <VerticalStackLayout>
+        <Label Text="Payments" FontSize="18" FontAttributes="Bold" Margin="15,0,0,5"/>
+        
+        <Grid Background="LightBlue" HeightRequest="40" Margin="15,0,15,0">
+                <Label Text="Total Amount" VerticalTextAlignment="Center" HorizontalOptions="Start"  Margin="5" FontAttributes="Bold"/>
+                <Label Text="$590" VerticalTextAlignment="Center" HorizontalOptions="End" Margin="5" FontAttributes="Bold"/>
+        </Grid>
+        
+        <Grid ColumnDefinitions="*,*" HorizontalOptions="Center" RowDefinitions="90,90,auto,*" 
+                  Margin="10">
+            <core:SfTextInputLayout Grid.Column="0" Margin="5" Hint="First Name" HelperText="Enter your first name" >
+                <Entry  />
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout Grid.Column="1" Margin="5" Hint="Last Name" HelperText="Enter your last name" >
+                <Entry  />
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout Grid.Column="0" Grid.Row="1" Margin="5" Hint="Phone" HelperText="Enter your phone number" >
+                <Entry  />
+            </core:SfTextInputLayout>
+
+            <core:SfTextInputLayout Grid.Column="1" Grid.Row="1" Margin="5" Hint="E-mail" HelperText="Enter your E-mail ID" >
+                <Entry  />
+            </core:SfTextInputLayout>
+
+            <VerticalStackLayout Grid.ColumnSpan="2" Grid.Row="2" Spacing="10">
+                <buttons:SfRadioGroup  Orientation="{OnPlatform WinUI=Horizontal, Android=Vertical}" >
+                    <buttons:SfRadioButton Text="UPI" StateChanged="PaymentOption_Selected" IsChecked="True"/>
+                    <buttons:SfRadioButton Text="Credit/Debit/ATM Card" StateChanged="PaymentOption_Selected"/>
+                    <buttons:SfRadioButton Text="Net Banking" StateChanged="PaymentOption_Selected"/>
+                    <buttons:SfRadioButton Text="Cash on Delivery" StateChanged="PaymentOption_Selected"/>
+                </buttons:SfRadioGroup>
+
+                <BoxView Background="Gray" HeightRequest="1"/>
+
+                <Grid>
+                    <VerticalStackLayout x:Name="upi_Grid" IsVisible="True" Spacing="10">
+                        <Border Background="LightGray"  HeightRequest="40">
+                            <Label Text="UPI" VerticalTextAlignment="Center"  Margin="5" FontAttributes="Bold"/>
+                        </Border>
+                        <buttons:SfRadioGroup Orientation="Vertical">
+                            <buttons:SfRadioButton Text="GPay" IsChecked="True"/>
+                            <buttons:SfRadioButton Text="PnonePe" />
+                        </buttons:SfRadioGroup>
+
+                        <Button Text="Pay Now" Margin="5" />
+
+                    </VerticalStackLayout>
+
+
+                    <VerticalStackLayout x:Name="cards_Grid" IsVisible="False">
+                        <Border Background="LightGray"  HeightRequest="40">
+                            <Label Text="Credit/Debit/ATM Card" VerticalTextAlignment="Center"  Margin="5" FontAttributes="Bold"/>
+                        </Border>
+                        <core:SfTextInputLayout Hint="Card Number" ContainerType="Outlined" Margin="0,15,0,0" HorizontalOptions="Start" WidthRequest="300" >
+                            <inputs:SfMaskedEntry Mask="0000-0000-0000-0000" />
+                        </core:SfTextInputLayout>
+                        <HorizontalStackLayout>
+                            <core:SfTextInputLayout Hint="Month/Year" ContainerType="Outlined"  WidthRequest="100">
+                                <inputs:SfMaskedEntry Mask="00/0000"/>
+                            </core:SfTextInputLayout>
+                            <core:SfTextInputLayout Hint="CVV" ContainerType="Outlined" Margin="15,0,0,0"  WidthRequest="100">
+                                <inputs:SfMaskedEntry Mask="000" />
+                            </core:SfTextInputLayout>
+                        </HorizontalStackLayout>
+                        <Button Text="Pay Now"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout x:Name="banking_Grid" IsVisible="False" Spacing="10">
+                        <Border Background="LightGray"  HeightRequest="40">
+                            <Label Text="Net Banking" VerticalTextAlignment="Center"  Margin="5" FontAttributes="Bold"/>
+                        </Border>
+                        <buttons:SfRadioGroup Orientation="Vertical">
+                            <buttons:SfRadioButton Text="HDFC Bank" IsChecked="True"/>
+                            <buttons:SfRadioButton Text="SBI Bank" />
+                            <buttons:SfRadioButton Text="ICICI Bank" />
+                        </buttons:SfRadioGroup>
+                        <Button Text="Pay Now" Margin="5" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout x:Name="cash_Grid" IsVisible="False" Spacing="10">
+                        <Border Background="LightGray"  HeightRequest="40">
+                            <Label Text="Cash on Delivery" VerticalTextAlignment="Center"  Margin="5" FontAttributes="Bold"/>
+                        </Border>
+                        <Label Margin="5" TextColor="Gray" Text="Due to handling costs, a nominal fee of $5 will be charged"/>
+                        <Button Text="Plaec Order" Margin="5" HeightRequest="40"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </VerticalStackLayout>
+
+
+        </Grid>
+        
+    </VerticalStackLayout>
+
+</ContentPage>
