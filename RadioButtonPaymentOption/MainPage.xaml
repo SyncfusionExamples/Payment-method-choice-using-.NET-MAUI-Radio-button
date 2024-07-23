@@ -49,7 +49,7 @@
                         </Border>
                         <buttons:SfRadioGroup Orientation="Vertical">
                             <buttons:SfRadioButton Text="GPay" IsChecked="True"/>
-                            <buttons:SfRadioButton Text="PnonePe" />
+                            <buttons:SfRadioButton Text="PhonePe" />
                         </buttons:SfRadioGroup>
 
                         <Button Text="Pay Now" Margin="5" />
@@ -92,7 +92,7 @@
                             <Label Text="Cash on Delivery" VerticalTextAlignment="Center"  Margin="5" FontAttributes="Bold"/>
                         </Border>
                         <Label Margin="5" TextColor="Gray" Text="Due to handling costs, a nominal fee of $5 will be charged"/>
-                        <Button Text="Plaec Order" Margin="5" HeightRequest="40"/>
+                        <Button Text="Place Order" Margin="5" HeightRequest="40"/>
                     </VerticalStackLayout>
                 </Grid>
             </VerticalStackLayout>
